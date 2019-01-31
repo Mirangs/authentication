@@ -1,3 +1,23 @@
+$button-bg: #4A89DC;
+
 .button {
-  
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: $button-bg;
+  font-size: 20px;
+  line-height: 25px;
+  padding: 10px;
+  color: #fff;
+  box-shadow: inset 0px -3px 0 0 darken($button-bg, 20%);
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
 }

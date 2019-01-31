@@ -1,2 +1,14 @@
-mixin button(modifier)
-  .button&attributes(attributes)
+mixin form(modifier)
+  form.form(method="GET" action="#")
+    h2.form__title Авторизация
+    p.form__hint Пожалуйста, введите свои данные, чтобы войти в сервис
+    fieldset
+      label(for="username-field") Имя пользователя
+      input(type="text" name="username" id="username-field" minlength="2" maxlength="20" required)
+      label(for="userpass-field") Пароль пользователя
+      input(type="password" name="userpass" minlength="9" maxlength="30" id="userpass-field" required)
+      .two-columns
+        <label><input type="checkbox" value="memorize">Запомнить меня</label>
+        a.link(href="#") Забыли пароль?
+      +button("Войти")(type="submit")
+      a.register.link(href="#") Зарегистрироваться

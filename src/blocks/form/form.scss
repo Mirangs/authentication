@@ -1,3 +1,118 @@
-.button {
-  
+$link-color: #7F7F7F;
+$form-bg: #EDEDED;
+$text-color: #5B6175;
+
+.form {
+  width: 40%;
+  margin: 0 auto;
+  padding: 50px 80px;
+  margin-top: 15vh;
+  background-color: $form-bg;
+
+  &__title {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+    color: $text-color;
+  }
+
+  &__hint {
+    color: $text-color;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 40px;
+    font-size: 20px;
+  }
+
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    margin: 0;
+    background-color: #fff;
+    border: none;
+    box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  label {
+    position: relative;
+    opacity: 0.5;
+    top: 30px;
+    left: 5px;
+    font-size: 20px;
+    line-height: 30px;
+    transition: all 0.2s;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding: 0;
+    padding-left: 5px;
+    border: none;
+    width: 100%;
+    border-bottom: 2px solid #7F7F7F;
+    background-color: transparent;
+    transition: all 0.2s;
+    line-height: 30px;
+
+    &:focus {
+      outline: none;
+      border: 2px solid #7F7F7F;
+    }
+  }
+
+  input[type="password"] {
+    margin-bottom: 50px;
+  }
+
+  .two-columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    label {
+      opacity: 1;
+      color: $text-color;
+      top: 0;
+      left: 0;
+      margin-bottom: 0;
+      display: flex;
+      justify-content: flex-start;
+      flex-basis: 50%;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+
+  .link {
+    color: $text-color;
+    transition: all 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
+
+  .button {
+    margin-top: 50px;
+    width: 100%;
+  }
+
+  .register {
+    font-size: 20px;
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: none;
+  }
 }
