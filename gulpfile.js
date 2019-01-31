@@ -20,7 +20,7 @@ var paths = {
     watch: ['./src/pages/*.pug', './src/templates/*.pug', './src/blocks/**/*.pug']
   },
   css: {
-    src: './src/styles/style.scss',
+    src: ['./src/styles/style.scss', './src/styles/style-reg.scss'],
     dest: './build/css',
     watch: ['./src/blocks/**/*.scss', './src/styles/**/*.scss', './src/styles/*.scss']
   },

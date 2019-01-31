@@ -1,0 +1,21 @@
+mixin regform
+  form.form.register-form(method="POST" action="#")
+    h2.form__title Регистрация нового пользователя
+    p.form__hint Поля, помеченные * обязательные для заполнения
+    fieldset
+      label(for="username-field") Имя пользователя*
+      input(type="text" name="username" id="username-field" minlength="2" maxlength="20" required)
+      label(for="user-mail-field") Электронная почта*
+      input(type="email" name="user-mail" id="user-mail-field" minlength="2" maxlength="20" required)
+      label(for="userpass-field-1") Пароль пользователя*
+      input(type="password" name="userpass-1" maxlength="30" id="userpass-field-1" required)
+      label(for="userpass-field-2") Повторите пароль*
+      input(type="password" name="userpass-2" maxlength="30" id="userpass-field-2" required)
+      h3 Пол
+      .two-columns
+        <label><input type="radio" name="sex" value="male" required>Мужчина</label>
+        <label><input type="radio" name="sex" value="female">Женщина</label>
+      label(for="about-field") Напишите немного о себе
+      textarea(name="about" id="about-field" rows="3" maxlength="200")
+      +button("Зарегистрироваться")
+

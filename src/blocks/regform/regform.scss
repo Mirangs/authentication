@@ -1,0 +1,38 @@
+
+
+.form {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+
+  input[type="password"] {
+    margin-bottom: 30px;
+  }
+
+  .two-columns {
+    margin-bottom: 20px;
+
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  h3 {
+    color: $text-color;
+  }
+}
+
+@media (max-width: 425px) {
+  .form {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    fieldset {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-mixin form(modifier)
+mixin form()
   form.form(method="GET" action="#")
     h2.form__title Авторизация
     p.form__hint Пожалуйста, введите свои данные, чтобы войти в сервис
@@ -11,4 +11,4 @@ mixin form(modifier)
         <label><input type="checkbox" value="memorize">Запомнить меня</label>
         a.link(href="#") Забыли пароль?
       +button("Войти")(type="submit")
-      a.register.link(href="#") Зарегистрироваться
+      a.register.link(href="register.html") Зарегистрироваться

@@ -1,43 +1,57 @@
-`use strict`;
+'use strict';
 
 (function() {
   const form = document.querySelector(`.form`);
-  const login = form.querySelector(`input[type="text"]`);
-  const loginLabel = form.querySelector(`label[for="username-field"]`);
-  const password = form.querySelector(`input[type="password"]`);
-  const passwordLabel = form.querySelector(`label[for="userpass-field"]`);
 
-  //Исчезновение подписи при вводе текста в поле
-  const changeSize = function(input, label) {
-    if (input.value !== ``) {
-      label.style.fontSize = `0`;
-    } else {
-      label.style.fontSize = `20px`;
+  const onInput = function(evt) {
+    if (evt.target.getAttribute(`type`) === `text` || evt.target.getAttribute(`type`) === `email` || evt.target.getAttribute(`type`) === `password` || evt.target.tagName === `TEXTAREA`) {
+      form.querySelector(`label[for=${evt.target.getAttribute(`id`)}]`).style= `font-size: 0; z-index: -1;`;
     }
   }
 
-  login.addEventListener(`blur`, function() {
-    changeSize(login, loginLabel);
-  });
+  const onBlur = function(evt) {
+    if (evt.target.value === ``) {
+      form.querySelector(`label[for=${evt.target.getAttribute(`id`)}]`).style = `font-size: 20px`;
+    }
+  }
 
-  password.addEventListener(`blur`, function() {
-    changeSize(password, passwordLabel);
-  });
-
-  login.addEventListener(`focus`, function() {
-      loginLabel.style.fontSize = `0`;
-  });
-
-  password.addEventListener(`focus`, function() {
-      passwordLabel.style.fontSize = `0`;
+  form.addEventListener(`input`, function(evt) {
+    onInput(evt);
+    evt.target.addEventListener(`blur`, onBlur);
   });
 
   //Валидация формы
-  login.addEventListener(`invalid`, function(evt) {
-    if (login.validity.tooShort) {
-      login.setCustomValidity(`Вы ввели слишком короткое значение. Оно содержать минимум 2 символа.`);
-    } else if (login.validity.valueMissing) {
-      login.setCustomValidity(`Введите имя пользователя.`);
+  const input = {
+    username: form.querySelector(`input[name="username"]`),
+    pass1: form.querySelector(`input[name="userpass-1"]`),
+    pass2: form.querySelector(`input[name="userpass-2"]`),
+    sex: form.querySelector(`input[name="sex"]`),
+  }
+
+  input.username.addEventListener(`input`, function() {
+    if (input.username.validity.tooShort) {
+      input.username.setCustomValidity(`Вы ввели слишком короткое имя пользователя. Оно должно быть не короче 2 символов`);
+    } else if (input.username.validity.valueMissing) {
+      input.username.setCustomValidity(`Введите имя пользователя`);
+    } else {
+      input.username.setCustomValidity('');
     }
   });
+
+  input.pass2.addEventListener(`input`, function() {
+    if (input.pass1.value !== input.pass2.value) {
+      input.pass2.setCustomValidity(`Пароли должны совпадать`);
+    } else {
+      input.pass2.setCustomValidity('');
+    }
+  });
+
+  input.sex.addEventListener(`change`, function() {
+    if (input.sex.validity.valueMissing) {
+      input.sex.setCustomValidity(`Выберите пол`);
+    } else {
+      input.sex.setCustomValidity('');
+    }
+  });
+
 })();

@@ -1,13 +1,8 @@
-/* Plugins */
-
-
 /* Global styles */
 @import 'global/global-scaffolding';
 
 
 /* Blocks */
 @import './src/blocks/button/button';
-@import './src/blocks/footer/footer';
 @import './src/blocks/form/form';
-@import './src/blocks/header/header';
-
+@import './src/blocks/regform/regform';

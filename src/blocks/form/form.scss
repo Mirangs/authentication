@@ -46,7 +46,9 @@ $text-color: #5B6175;
   }
 
   input[type="text"],
-  input[type="password"] {
+  input[type="password"] ,
+  input[type="email"],
+  textarea {
     margin: 0 auto;
     margin-bottom: 30px;
     padding: 0;
